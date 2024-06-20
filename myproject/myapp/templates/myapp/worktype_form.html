@@ -1,0 +1,11 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<h2>{% if form.instance.pk %}Изменить{% else %}Добавить{% endif %} вид работ</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+<a href="{% url 'worktype_list' %}">Отменить</a>
+{% endblock %}
